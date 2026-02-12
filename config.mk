@@ -10,8 +10,8 @@ COMPILER = GCC
 BLAS_LIBRARY = MKL
 
 # either 64 or 128
-ALTO_MASK_LENGTH = 64
-#ALTO_MASK_LENGTH = 128
+# ALTO_MASK_LENGTH = 64
+ALTO_MASK_LENGTH = 128
 
 # List of modes and ranks to specialize code for; use 0 to
 # disable specialization.
@@ -28,4 +28,4 @@ ALTERNATIVE_PEXT = false
 THP_PRE_ALLOCATION = false
 
 MEMTRACE = false
-DEBUG = true
+DEBUG = false

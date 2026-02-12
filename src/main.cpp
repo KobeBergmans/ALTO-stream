@@ -499,8 +499,9 @@ void BenchmarkAlto(SparseTensor* X, int max_iters, IType rank,
     // warmup
     mttkrp_alto_par(target_mode, factors, rank, AT, writelocks, ofibs, oidx);
 	// Do ALTO mttkrp
-	wtime_s = omp_get_wtime();
+	// wtime_s = omp_get_wtime();
 	for (int i = 0; i < max_iters; ++i) {
+		wtime_s = omp_get_wtime();
 		if (target_mode == -1) {
 			for (int m = 0; m < AT->nmode; ++m) {
 				mttkrp_alto_par(m, factors, rank, AT, writelocks, ofibs, oidx);
@@ -509,9 +510,11 @@ void BenchmarkAlto(SparseTensor* X, int max_iters, IType rank,
 		else {
 			mttkrp_alto_par(target_mode, factors, rank, AT, writelocks, ofibs, oidx);
 		}
+		wtime = omp_get_wtime() - wtime_s;
+		printf("ALTO runtime:   %f\n", wtime);
 	}
-	wtime = omp_get_wtime() - wtime_s;
-	printf("ALTO runtime:   %f\n", wtime);
+	// wtime = omp_get_wtime() - wtime_s;
+	// printf("ALTO runtime:   %f\n", wtime);
 #ifdef memtrace
 	printf("After mttkrp_alto_par \n");
 	post_n0 = node_mem(0, "Active:");
