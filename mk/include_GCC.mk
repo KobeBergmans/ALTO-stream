@@ -18,8 +18,8 @@ endif
 
 VERSION  = --version
 ifeq ($(DEBUG),true)
-CXXFLAGS += $(OPENMP) $(BLASCFLAGS) -O0 -static-libasan -O -g -fsanitize=address -fno-omit-frame-pointer -march=native -static -Wall -g -std=c++17 -D _GLIBCXX_PARALLEL
-LIBS	 = -static-libasan -O -g -fsanitize=address -fno-omit-frame-pointer -lpthread -lm -ldl $(BLASLIBS)
+CXXFLAGS += $(OPENMP) $(BLASCFLAGS) -O0 -static-libasan -O -g -fno-omit-frame-pointer -march=native -static -Wall -g -std=c++17 -D _GLIBCXX_PARALLEL
+LIBS	 = -static-libasan -O -g -fno-omit-frame-pointer -lpthread -lm -ldl $(BLASLIBS)
 else
 CXXFLAGS += $(OPENMP) $(BLASCFLAGS) -O3 -march=native -static -g -std=c++17 -D_GLIBCXX_PARALLEL
 LIBS	 = -Wl,--no-as-needed -lpthread -lm -ldl $(BLASLIBS)

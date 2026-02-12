@@ -1,4 +1,4 @@
-CXX      = icpc
+CXX      = icpx
 LINKER   = $(CC)
 
 OPENMP   = -qopenmp

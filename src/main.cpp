@@ -463,7 +463,9 @@ void BenchmarkAlto(SparseTensor* X, int max_iters, IType rank,
 	printf("\nmemory N0 %lld B N1 %lld B\n", (post_n0 - pre_n0), (post_n1 - pre_n1));
 #endif
     DestroyKruskalModel(M);
-    DestroySparseTensor(X);
+
+	// This gives a mem error because this is used later on... Move this for now
+    // DestroySparseTensor(X);
 #ifdef memtrace
 	printf("After deletion of SparseTensor\n");
 	post_n0 = node_mem(0, "Active:");
@@ -522,6 +524,8 @@ void BenchmarkAlto(SparseTensor* X, int max_iters, IType rank,
 		AlignedFree(factors[m]);
 	}
 	AlignedFree(factors);
+
+	DestroySparseTensor(X);
 
 	destroy_da_mem(AT, ofibs, rank, target_mode);
 	destroy_alto(AT);

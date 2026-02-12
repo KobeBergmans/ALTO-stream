@@ -5,7 +5,7 @@
 #################################################################
 
 # Supported: ICC, GCC
-COMPILER = ICC
+COMPILER = GCC
 # Supported: MKL, OPENBLAS
 BLAS_LIBRARY = MKL
 
@@ -28,4 +28,4 @@ ALTERNATIVE_PEXT = false
 THP_PRE_ALLOCATION = false
 
 MEMTRACE = false
-DEBUG = false
+DEBUG = true
