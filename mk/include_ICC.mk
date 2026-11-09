@@ -3,7 +3,7 @@ LINKER   = $(CC)
 
 OPENMP   = -qopenmp
 ifeq ($(BLAS_LIBRARY),MKL)
-BLASLFLAGS 	= -mkl=parallel
+BLASLFLAGS 	= -qmkl=parallel
 INCLUDFLAGS	= 
 BLASLIBS 	= -liomp5 -lpthread -lm -ldl #-lmkl_intel_lp64 #-lmkl_intel_thread
 else

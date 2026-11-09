@@ -5,7 +5,7 @@
 #################################################################
 
 # Supported: ICC, GCC
-COMPILER = GCC
+COMPILER = ICC
 # Supported: MKL, OPENBLAS
 BLAS_LIBRARY = MKL
 
@@ -17,7 +17,7 @@ ALTO_MASK_LENGTH = 128
 # disable specialization.
 MODES_SPECIALIZED := 3, 4, 5
 # RANKS_SPECIALIZED := 1, 4, 16, 64
-RANKS_SPECIALIZED := 8, 16, 100
+RANKS_SPECIALIZED := 0
 MAX_NUM_MODES = 5
 
 # Allow ALTO to change number of threads
